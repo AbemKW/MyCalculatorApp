@@ -22,10 +22,29 @@
             Grid.Row="1"
             Command="{Binding ClearCommand}"
             />
-        <Button
-            Text="("
+        <Grid
+            Grid.Column="1"
             Grid.Row="1"
-            Grid.Column="1"/>
+            ColumnDefinitions="*,*,*,*"
+            RowDefinitions="*,*,*,*">
+            
+        <Button
+            Text="X"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="4"
+            Command="{Binding AppendDigitCommand}"
+            CommandParameter="5"
+        />
+        <Label
+            Text="Y"
+            TextColor="Black"
+            FontAttributes="Bold"
+            FontSize="20"
+            Grid.Column="2"
+            Grid.Row="1"
+            HorizontalTextAlignment="End"
+        />
+        </Grid>
         <Button
             Text=")"
             Grid.Row="1"
