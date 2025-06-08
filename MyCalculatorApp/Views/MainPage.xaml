@@ -32,8 +32,8 @@
             Text="X"
             Grid.RowSpan="4"
             Grid.ColumnSpan="4"
-            Command="{Binding AppendDigitCommand}"
-            CommandParameter="5"
+            Command="{Binding SetOperatorCommand}"
+            CommandParameter="X"
         />
         <Label
             Text="Y"
@@ -45,11 +45,43 @@
             HorizontalTextAlignment="End"
         />
         </Grid>
-        <Button
-            Text=")"
+
+        <Border
             Grid.Row="1"
             Grid.Column="2"
+            BackgroundColor="#ac99ea"
+            StrokeShape="RoundRectangle 8"
+            >
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding SetOperatorCommand}"
+                    CommandParameter="Y">
+                </TapGestureRecognizer>
+            </Border.GestureRecognizers>
+            <HorizontalStackLayout
+                HeightRequest="50"
+                HorizontalOptions="Center">
+                
+            <Label
+                Text="X"
+                FontSize="36"
+                TextColor="Black"
+                VerticalOptions="Center"
+                 FontAttributes="Bold"
+                HorizontalTextAlignment="End"
+                />
+            <Label
+                 Text="2"
+                 TextColor="Black"
+                 FontAttributes="Bold"
+                 FontSize="20"
+                VerticalOptions="Start"
             />
+            </HorizontalStackLayout>
+
+        </Border>
+        
+        
         <Button
             Text="*"
             Grid.Row="1"
