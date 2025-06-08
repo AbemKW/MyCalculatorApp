@@ -21,6 +21,13 @@ public partial class MainViewModel : BaseViewModel
     [RelayCommand]
     public async Task SetOperator(string op)
     {
+        if (op == "Y")
+        {
+            float Square = float.Parse(Input);
+            Square *= Square;
+            Input = $"{Square}";
+            return;
+        }
         if (op == "=")
         {
             Num2 = Input;
@@ -41,8 +48,6 @@ public partial class MainViewModel : BaseViewModel
         Sign = op;
         Num1 = Input;
         Clear();
-        //AppendDigit();
-        Num2 = Input;
     }
 
     [RelayCommand]
@@ -64,6 +69,9 @@ public partial class MainViewModel : BaseViewModel
                 break;
             case "-":
                 result = num1 - num2;
+                break;
+            case "X":
+                result = (float)Math.Pow(num1, num2);
                 break;
             default:
                 await Shell.Current.DisplayAlert("Syntax Error", "Enter again", "OK");
